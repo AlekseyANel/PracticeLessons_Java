@@ -1,4 +1,4 @@
-package com.practice.BasedLessons;
+package com.practice.baseLessons;
 
 import java.util.Scanner;
 

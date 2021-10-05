@@ -1,4 +1,4 @@
-package com.practice.BasedLessons;
+package com.practice.baseLessons;
 
 public class SystemProperty {
     public static void main(String[] args) {
