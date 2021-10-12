@@ -11,7 +11,7 @@ public class UpperCase {
 
         String upperCaseSentence = "";
         Scanner sentenceScan = new Scanner(sentence);
-        while (sentenceScan.hasNext()) {//запускаем цикл по предложению
+        while (sentenceScan.hasNext()) {//запускаем цикл по символам в предложении
             String word = sentenceScan.next();//считываем в цикле предложение до первого пробела
             // и присваиваем полученную подстроку (слово) в переменную word
             upperCaseSentence//набираем новое предложение из слов
