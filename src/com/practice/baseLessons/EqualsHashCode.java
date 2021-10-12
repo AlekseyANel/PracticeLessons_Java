@@ -1,8 +1,8 @@
 package com.practice.baseLessons;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Objects;
+import java.util.*;
+
+import static com.practice.baseLessons.EqualsHashCode.Contact.printCollection;
 
 public class EqualsHashCode {
     public static void main(String[] args) {
@@ -11,6 +11,7 @@ public class EqualsHashCode {
 //        testArrayList();
 //        testHashSetUpdate();
 //        testHashSet();
+//        testHashMapUpdate();
     }
 
     private static void equalsTwoObj() {
@@ -61,6 +62,21 @@ public class EqualsHashCode {
         //без переопределений: сайз 2(остался)
         //переопр иквелс и хэшкод по id: сайз 1
     }
+
+    private static void testHashMapUpdate() {
+        Contact contact1 = new Contact(124, "Ivanov", "+38050");
+        HashMap<Contact,String> adressMap = new HashMap<>();
+        adressMap.put(contact1,"Ukraine, Kiev, AAA str., 25");
+        //меняем поле phone в контакте. Контакт у нас является ключем для adressMap
+        //хэшкод для контакт1 поменялся, и поетому по этому ключу мы не можем
+        // достать значение из adressMap
+        contact1.phone = "+3095";//будет null. не достать новый контакт
+        System.out.println(adressMap.get(contact1));//печатаем новый ключ - контакт с +3095
+        printCollection(adressMap.entrySet());//печатаем всю мапу новую, и она есть
+        System.out.println(adressMap.get(new Contact(123,"Ivanov","+38050")));//
+        ////будет null. не достать и по старому ключу-контакт
+    }
+
     static class Contact {
         int id;
         String name;
@@ -78,7 +94,11 @@ public class EqualsHashCode {
                     ", phone='" + phone + '\'' +
                     '}';
         }
-
+static void printCollection(Collection collection) {
+            for (Object obj : collection) {
+                System.out.println(obj);
+            }
+}
 
         @Override //переопределяем метод equals, для сравнения данных объектов (а не только сравнение ссылок)
         public boolean equals(Object o) {
