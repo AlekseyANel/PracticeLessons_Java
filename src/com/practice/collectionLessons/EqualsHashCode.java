@@ -1,8 +1,8 @@
-package com.practice.baseLessons;
+package com.practice.collectionLessons;
 
 import java.util.*;
 
-import static com.practice.baseLessons.EqualsHashCode.Contact.printCollection;
+import static com.practice.collectionLessons.EqualsHashCode.Contact.printCollection;
 
 public class EqualsHashCode {
     public static void main(String[] args) {
@@ -94,7 +94,8 @@ public class EqualsHashCode {
                     ", phone='" + phone + '\'' +
                     '}';
         }
-static void printCollection(Collection collection) {
+
+        static void printCollection(Collection collection) {
             for (Object obj : collection) {
                 System.out.println(obj);
             }
