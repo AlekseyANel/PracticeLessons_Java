@@ -1,5 +1,7 @@
 package com.practice.classLessons;
 
+import java.util.Scanner;
+
 public class StaticMethodDemo {
     public static void main(String[] args) {
         System.out.println("Вызов статического метода без указания оъекта");
@@ -13,10 +15,16 @@ public class StaticMethodDemo {
         System.out.println("Вызов статического метода с указанием оъекта");
         useStatic.staticMethod(67);
     }
+
 }
 
 class StaticMethodClass {
-    static int staticVar = 3;
+    static String staticVar;
+    static {
+        System.out.println("Статический блок инициализирован. Введите строку, плиз!");
+        Scanner scanner = new Scanner(System.in);
+        staticVar = scanner.nextLine();
+    }
     int nonStaticVar = 2;
 
     public void nonStaticMethod() {
